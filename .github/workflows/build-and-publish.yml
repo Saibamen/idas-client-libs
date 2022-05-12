@@ -35,10 +35,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Create package ${{ env.PACKAGE_1 }}
-      run: dotnet pack --configuration Release **/${{ env.PACKAGE_1 }}.nuspec
+      run: dotnet pack --configuration Release **/${{ env.PACKAGE_1 }}.csproj
     - name: Create package ${{ env.PACKAGE_2 }}
-      run: dotnet pack --configuration Release **/${{ env.PACKAGE_2 }}.nuspec
+      run: dotnet pack --configuration Release **/${{ env.PACKAGE_2 }}.csproj
     - name: Create package ${{ env.PACKAGE_3 }}
-      run: dotnet pack --configuration Release **/${{ env.PACKAGE_3 }}.nuspec
+      run: dotnet pack --configuration Release **/${{ env.PACKAGE_3 }}.csproj
     - name: Create package ${{ env.PACKAGE_4 }}
-      run: dotnet pack --configuration Release **/${{ env.PACKAGE_4 }}.nuspec
+      run: dotnet pack --configuration Release **/${{ env.PACKAGE_4 }}.csproj
