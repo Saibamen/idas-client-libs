@@ -43,6 +43,6 @@ jobs:
         to: ${{ secrets.DEV_EMAIL }}
         from: GitHub Actions
         # Optional plain body:
-        body: Build job of ${{ github.repository }} failed!
+        body: Build job of ${{ github.repository }} failed! ${{ toJson(github) }}
         # Optional converting Markdown to HTML (set content_type to text/html too):
         convert_markdown: true
