@@ -26,10 +26,9 @@ jobs:
       working-directory: ${{ env.WEBLIBS_DIR }}
     - run: npm run lint:prod
       working-directory: ${{ env.WEBLIBS_DIR }}
-    - run: echo "${{ toJson(github) }}"
-      if: ${{ failure() }}
     - name: Send mail if job failed
       if: ${{ failure() }}
+      #if: ${{ failure() && github.repository_owner == 'gandalan' }}
       uses: dawidd6/action-send-mail@v3
       with:
         # Specify connection via URL (replaces server_address, server_port, secure,
@@ -39,10 +38,7 @@ jobs:
         #  * smtp://user:password@server:port
         #  * smtp+starttls://user:password@server:port
         connection_url: ${{ secrets.MAIL_CONNECTION }}
-        subject: GitHub Actions WebLibs job failed
+        subject: GitHub Action failed for workflow '${{ github.workflow }}' ${{ toJson(job) }}
         to: ${{ secrets.DEV_EMAIL }}
         from: GitHub Actions
-        # Optional plain body:
-        body: Build job of ${{ github.repository }} failed! ${{ toJson(github) }}
-        # Optional converting Markdown to HTML (set content_type to text/html too):
-        convert_markdown: true
+        body: Build job '${{ github.job }}' failed! Triggered by ${{ github.triggering_actor }}. Ref ${{ github.ref }}
