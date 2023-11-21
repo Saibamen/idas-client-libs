@@ -31,14 +31,8 @@ jobs:
       #if: ${{ failure() && github.repository_owner == 'gandalan' }}
       uses: dawidd6/action-send-mail@v3
       with:
-        # Specify connection via URL (replaces server_address, server_port, secure,
-        # username and password)
-        #
-        # Format:
-        #  * smtp://user:password@server:port
-        #  * smtp+starttls://user:password@server:port
         connection_url: ${{ secrets.MAIL_CONNECTION }}
-        subject: GitHub Action failed for workflow '${{ github.workflow }}' ${{ toJson(job) }}
+        subject: GitHub Action failed for workflow '${{ github.workflow }}'!
         to: ${{ secrets.DEV_EMAIL }}
         from: GitHub Actions
         body: Build job '${{ github.job }}' failed! Triggered by ${{ github.triggering_actor }}. Ref ${{ github.ref }}
