@@ -24,4 +24,4 @@ jobs:
           # [Required] Access token with `workflow` scope.
           token: ${{ secrets.WORKFLOW_SECRET }}
           release_types: "major"
-          ignore: "phips28/gh-action-bump-version, dynamic/github-code-scanning/codeql"
+          ignore: "phips28/gh-action-bump-version@master"
