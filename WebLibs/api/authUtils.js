@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { jwtDecode } from "jwt-decode";
 import validator from "validator";
 
@@ -51,14 +50,17 @@ export async function initIDAS(appToken)
     {
         mandantGuid = urlParams.get("m");
     }
+
     if (urlParams.has("a"))
     {
         apiBaseurl = urlParams.get("a");
     }
+
     if (urlParams.has("j"))
     {
         jwtToken = urlParams.get("j");
     }
+
     if (urlParams.has("t"))
     {
         jwtRefreshToken = urlParams.get("t");
@@ -87,7 +89,7 @@ export async function initIDAS(appToken)
 }
 
 /**
- * sets up authentication 
+ * sets up authentication
  *
  * @export
  * @async
@@ -121,6 +123,7 @@ export async function setup(settings)
             currentRefreshToken = refreshToken;
             startRefreshTimer(settings);
         }
+
         let mandantGuid = decoded["mandantGuid"] || "";
         if (mandantGuid)
         {

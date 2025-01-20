@@ -70,6 +70,7 @@ export class RESTClient
                 fileName = response.headers["content-disposition"].split(";")[1];
                 fileName = fileName.replace("filename=", "").trim();
             }
+
             this.lastError = "";
             return { data: response.data, filename: fileName, contentType: "application/pdf" };
         }
@@ -92,6 +93,7 @@ export class RESTClient
         {
             this.handleError(error);
         }
+
         return response;
     }
 
@@ -156,7 +158,6 @@ export class RESTClient
         {
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
-            // eslint-disable-next-line
             console.error(error.response.data, error.response.status, error.response.headers);
         }
         else if (error.request)
@@ -164,17 +165,14 @@ export class RESTClient
             // The request was made but no response was received
             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
             // http.ClientRequest in node.js
-            // eslint-disable-next-line
             console.error("Request", error.request);
         }
         else
         {
             // Something happened in setting up the request that triggered an Error
-            // eslint-disable-next-line
             console.error("Error", error.message);
         }
 
-        // eslint-disable-next-line
         console.info("Config", error.config);
         this.lastError = error;
     }

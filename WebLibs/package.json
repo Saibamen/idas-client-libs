@@ -1,7 +1,7 @@
 {
   "name": "@gandalan/weblibs",
-  "version": "1.2.0",
-  "description": "WebLibs for Gandalan JS/TS/Svelte projects",
+  "version": "1.5.0",
+  "description": "WebLibs for Gandalan JS/TS projects",
   "keywords": [
     "gandalan"
   ],
@@ -13,25 +13,24 @@
   "author": "Philipp Reif",
   "main": "index",
   "typings": "index",
+  "type": "module",
   "scripts": {
-    "svelte-check": "svelte-check",
-    "svelte-check:watch": "svelte-check --watch",
     "lint": "eslint .",
     "lint:prod": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
-    "axios": "^1.7.7",
+    "axios": "^1.7.9",
     "jwt-decode": "^4.0.0",
     "validator": "^13.12.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.25.9",
-    "eslint": "^8.57.1",
-    "eslint-plugin-svelte": "^2.46.0",
-    "svelte": "^4.2.19",
-    "svelte-check": "^3.8.6"
+    "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.26.5",
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0"
   },
   "publishConfig": {
     "access": "public"
